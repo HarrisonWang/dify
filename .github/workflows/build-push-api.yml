@@ -15,7 +15,7 @@ concurrency:
 env:
   DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
   DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-  DIFY_API_IMAGE_NAME : ${{ vars.DIFY_API_IMAGE_NAME  || 'langgenius/dify-api' }}
+  DIFY_API_IMAGE_NAME : ${{ vars.DIFY_API_IMAGE_NAME || 'langgenius/dify-api' }}
 
 jobs:
   build:
@@ -25,7 +25,7 @@ jobs:
       matrix:
         include:
           - service_name: "build-api-amd64"
-            image_name_env: "DIFY_API_IMAGE_NAME "
+            image_name_env: "DIFY_API_IMAGE_NAME"
             context: "api"
             platform: linux/amd64
 
